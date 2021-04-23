@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/lax.css">
+</head>
+
+<body>
+
+
+    <div class="lax box"></div>
+    <div class="lax ball"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+
+
+
+    <!-- JS -->
+    <script>
+        window.addEventListener("scroll", function () {
+            console.log(document.documentElement.scrollTop, "scrollTop");
+            console.log(window.scrollY, "scrollY");
+        })
+
+        window.onload = function () {
+            lax.init()
+
+            // Add a driver that we use to control our animations
+            lax.addDriver('scrollY', function () {
+                return window.scrollY
+            })
+
+            // Add animation bindings to elements
+            lax.addElements('.box', {
+                scrollY: {
+                    translateX: [
+                        [0, 1200],
+                        [0, 500],
+                    ],
+                    rotate: [
+                        [700, 2000],
+                        [0, 270]
+                    ],
+                    scale: [
+                        [700, 2000],
+                        [1, 15]
+                    ],
+                    opacity: [
+                        [2000, 3000],
+                        [1, 0]
+                    ]
+                }
+            })
+
+            lax.addElements('.ball', {
+                scrollY: {
+                    translateX: [
+                        [0, 1200],
+                        [0, 500],
+                    ],
+                    rotate: [
+                        [700, 2000],
+                        [0, 270]
+                    ],
+                    scale: [
+                        [700, 2000],
+                        [1, 15]
+                    ],
+                    opacity: [
+                        [2000, 3000],
+                        [1, 0]
+                    ]
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
